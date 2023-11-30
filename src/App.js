@@ -15,6 +15,7 @@ function App() {
   // Rendered JSX for the application
   return (
     <div>
+      <h1>hello</h1>
       {/* BrowserRouter to manage routing */}
       <BrowserRouter>
         <Routes>
