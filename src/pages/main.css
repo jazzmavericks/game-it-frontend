@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.Main {
+  display: flex;
+  background-color: #000000;
+}
+
+.sidebar-wrapper {
+  width: 230px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.mainContent {
+  flex-grow: 1;
+  display: flex;
+  padding: 20px;
+}
+
+.columns-container {
+  display: flex;
+}
+
+.left-column {
+  flex: 60%;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.right-column {
+  flex: 40%;
+  width: 260px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #0fa9eb;
+  color: #fff;
+}
+
+button:hover {
+  background-color: #0fa9eb;
+}
+
+p {
+  font-size: 18px;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.uploadImage {
+  width: 600px;
+}
+
+.icon {
+  width: 30px;
+  padding-right: 15px;
+}
+
+.saveButton img {
+  width: 30px;
+  padding-right: 15px;
+  filter: grayscale(0);
+  transition: filter 0.3s ease;
+}
+
+.saveButton img:hover {
+  filter: grayscale(100%);
+}
+
+.iconBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.card {
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #4f4f4f;
+}
+
+.logo {
+  height: 35px;
+}
+
+.avatarBox {
+  display: flex;
+  align-items: center;
+  margin-top: 7px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.avatarBox p {
+  font-size: 14px;
+}
+
+.profileIcon {
+  width: 40px;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoutRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profileIconContainer {
+  margin-right: 10px;
+}
+
+.logoutRow .profileIcon {
+  width: 70px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoutRow span {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoutRow p {
+  color: white;
+  font-size: 12px;
+  margin: 0px;
+}
+
+.followButtonContainer {
+  margin-left: auto;
+}
+
+.logoutRow h1 {
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+.logoutButton {
+  padding: 2px 2px;
+  margin: 2px;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #000000;
+  color: rgb(22, 110, 243);
+}
+
+.logoutButton:hover {
+  color: #fff;
+  background-color: #000000;
+}
+
+.suggestedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.suggestedHeader p {
+  color: white;
+  font-size: 12px;
+  margin: 0px;
+}
+
+.suggestedHeader h1 {
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+.likedBy {
+  display: flex;
+  align-items: center;
+  margin-top: 7px 0 0 0;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.likedBy p {
+  font-size: 12px;
+}
+
+.likedByIcon {
+  width: 40px;
+}
+
+.commentBox p {
+  margin: 7px 0 0 5px;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.addCommentBox {
+  display: flex;
+  align-items: last baseline;
+  justify-content: space-between;
+  margin: 7px 0 0 5px;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.addCommentBox p {
+  margin: 5px 0 0 0px;
+  font-size: 14px;
+  color: #848484;
+}
+
+.smileyIcon {
+  width: 15px;
+  filter: grayscale(50%);
+}
