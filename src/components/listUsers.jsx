@@ -11,7 +11,7 @@ function Listusers(props) {
 
             // Making a GET request to fetch the list of users
             const response = await fetch(
-                "http://localhost:5001/listAllUsers",
+                "https://game-it-backend.onrender.com/listAllUsers",
                 {
                     method: "GET",
                     headers: {
