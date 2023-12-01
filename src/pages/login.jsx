@@ -26,6 +26,7 @@ function Login(props) {
                         password={password}
                         setLoggedIn={props.setLoggedIn}>  
                     </LoginForm>
+                <h1>hello</h1>
                 </div>
             }
         </div>
