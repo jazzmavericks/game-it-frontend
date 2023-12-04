@@ -22,8 +22,23 @@ function Sidebar() {
       <img className="logo" src={instaLogo} alt="Instagram Logo" />
 
       {/* List of navigation items */}
+      <section>
+        <div class="flexrow">
+          Logo/ Name
+          </div>
+        <div class="flexrow">
+          <button>Home</button>
+          <button>Games Library</button>
+          <button>News</button>
+          <button>About</button>
+        </div>
+        <div class="flexrow">
+        <button>Login</button>
+        <button>Register</button>
+        </div>
+      </section>
+      
       <ul>
-       
         <li><img className="menuIcon" src={reelsIcon} alt="reels icon" /> Reels</li>
         <li><img className="menuIcon" src={messagesIcon} alt="messages icon" /> Messages</li>
         <li><img className="menuIcon" src={notificationsIcon} alt="notifications icon" /> Notifications</li>
