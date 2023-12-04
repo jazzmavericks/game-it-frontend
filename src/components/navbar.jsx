@@ -1,6 +1,6 @@
 // Importing necessary modules, assets, and components
 import React from 'react';
-import '../Sidebar.css';
+import '../navbar.css';
 import { Link } from 'react-router-dom';
 import instaLogo from '../images/insta_logo.png';
 import homeIcon from '../images/home.png';
@@ -23,12 +23,7 @@ function Sidebar() {
 
       {/* List of navigation items */}
       <ul>
-        {/* Link to Home */}
-        <li><Link to="/"><img className="menuIcon" src={homeIcon} alt="home icon" /></Link> <span>Home</span></li>
-
-        {/* Other navigation items */}
-        <li><img className="menuIcon" src={searchIcon} alt="search icon" /> Search</li>
-        <li><img className="menuIcon" src={exploreIcon} alt="explore icon" /> Explore</li>
+       
         <li><img className="menuIcon" src={reelsIcon} alt="reels icon" /> Reels</li>
         <li><img className="menuIcon" src={messagesIcon} alt="messages icon" /> Messages</li>
         <li><img className="menuIcon" src={notificationsIcon} alt="notifications icon" /> Notifications</li>
