@@ -7,10 +7,9 @@ import instaLogo from "../images/insta_logo.png";
 function Navbar() {
   return (
     <div className="navbar">
-    <div className="logoBox">
-      <img className="logo" src={instaLogo} alt="Instagram Logo" />
+      <div className="logoBox">
+        <img className="logo" src={instaLogo} alt="Instagram Logo" />
       </div>
-      <div>
       <div className="navMenuNotLoggedIn">
         <ul>
           <li>Home</li>
@@ -20,11 +19,12 @@ function Navbar() {
         </ul>
       </div>
         <div className="loggedoutMenu">
-          <button>Login</button>
-          <button>Register</button>
+        <ul>
+          <li>Login</li>
+          <li>Register</li>
+      </ul>
         </div>
       </div>
-    </div>
   );
 }
 
