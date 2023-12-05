@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap');
+
+.libraryBody {
+    background: linear-gradient(to right, #1C1C23, #2f2f3f);
+}
+
+.headerSection {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(to right, #1C1C23, #2f2f3f);
+    padding-left: 45px;
+}
+
+.headerSection h1 {
+    color:#44AF69;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.horizontal-fade-line {
+    width: 80%; /* Adjust the width as needed */
+    margin: 20px auto; /* Adjust margin as needed */
+    height: 1px; /* Set the height of the line */
+    background: linear-gradient(to right, transparent, #3e92cc, transparent); /* Adjust colors as needed */
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(to right, #1C1C23, #2f2f3f);
+}
+
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-right: 20px;
+    padding: 30px;
+    color: white;
+    letter-spacing: 1px;
+  }
+  
+  .sideBar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -1px; /* Adjust the thickness of the border */
+    width: 10px; /* Adjust the width of the fade */
+    background: linear-gradient(to bottom, transparent, #3e92cc, transparent);
+  }
+
+.gamesSection {
+    display: flex;
+    flex-direction: row;
+}
+
+.filterBy h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+}
+
+.sortBy {
+    margin-bottom:50px;
+}
+
+.sortBy h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+}
+
+.searchBox {
+    margin-bottom:50px;
+}
+
+.searchBox h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+}

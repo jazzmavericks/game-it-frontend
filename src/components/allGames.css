@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap');
+
+.gamesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    font-family: 'Orbitron', sans-serif;
+}
+
+.gameItem {
+    width: calc(25% - 20px);
+    box-sizing: border-box;
+    margin-bottom: 70px;
+}
+  
+
+.gameImage {
+    width: 100%;
+    height: 60%;
+}
+  
+
+.gameTitle {
+    margin-top: 10px; 
+    color: #3e92cc;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.findOutMore {
+    width: 95%;
+    background-color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #3e92cc;
+    border-radius: 0;
+    height:20px;
+    padding:3px;
+}
+
+.controls {
+    display:flex;
+    flex-direction: column;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #44AF69;
+}
+
+.control {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top:5px;
+}
+
+.paginationControls {
+    display:flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-bottom: 10px;;
+}
+
+.paginationControls button{
+    color: #44AF69;
+    font-size: 12px;
+    background-color: transparent;
+    font-family: 'Orbitron', sans-serif;
+}
