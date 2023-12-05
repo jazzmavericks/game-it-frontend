@@ -16,7 +16,7 @@ function App() {
   // Rendered JSX for the application
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar loggedIn={loggedIn} email={email}></Navbar>
       <BrowserRouter>
         <Routes>
           {/* Route for the 'Main' component */}
