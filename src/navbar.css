@@ -1,20 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap');
 
-.sidebar {
+.navbar {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  font-family: 'Roboto', sans-serif;
-  width: 240px;
-  height: 100vh; /* Full height of the viewport */
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #000000;
-  color: #fff;
-  padding-top: 30px;
-  padding-left:15px;
-  overflow-y: auto; /* Allow scrolling if content exceeds height */
-  border-right: 1px solid #454545;
+  font-family: 'Orbitron', sans-serif;
+  height: 50px;
+  background: linear-gradient(to right, #1C1C23, #2f2f3f);
+  color: #3E92CC;
+  padding: 10px 20px 30px 10px;
 }
 
 ul {
@@ -23,10 +17,11 @@ ul {
 }
 
 li {
-  display: flex;
+  display: inline-flex;
+  flex-direction: row;
   align-items: center;
   margin-top:7px;
-  padding: 5px;
+  padding: 5px 15px 5px 15px;
   cursor: pointer;
 }
 
@@ -41,7 +36,3 @@ li:hover {
 span {
   line-height: 1;
 }
-.flexrow{
-display: flex;
-justify-content: space-between
-};

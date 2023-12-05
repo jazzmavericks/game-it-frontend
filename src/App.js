@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RegisterForm from './components/registerForm';
 import LoginForm from './components/LoginForm';
+import Navbar from './components/navbar';
 import Main from './pages/main';
 
 // Main component named App
@@ -15,8 +16,7 @@ function App() {
   // Rendered JSX for the application
   return (
     <div>
-      <h1>hello</h1>
-      {/* BrowserRouter to manage routing */}
+      <Navbar></Navbar>
       <BrowserRouter>
         <Routes>
           {/* Route for the 'Main' component */}
