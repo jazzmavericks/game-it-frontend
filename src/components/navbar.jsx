@@ -46,3 +46,4 @@ function Navbar({loggedIn, email}) {
 }
 
 export default Navbar;
+
