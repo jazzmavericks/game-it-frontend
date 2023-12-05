@@ -10,6 +10,7 @@ import saveIcon from '../images/insta_save.png';
 import friendsbanner from '../images/friendsbar.png';
 import likedIcon from '../images/liked_icons.png';
 import smileyIcon from '../images/smileyGrey.png';
+import DisplayUsername from '../components/displayUsername';
 
 // Creating a functional component named Main
 function Main() {
@@ -84,6 +85,10 @@ function Main() {
                   <div className="commentBox">
                     <div>
                       <p><strong>chester_bid</strong>🎄✨ A glimpse into Wonderland ✨🎅🏼</p>
+                      <h1>hello</h1>
+                      <DisplayUsername 
+                        setLoggedIn={setLoggedIn}
+                       />
                     </div>
                   </div>
                   {/* Section for adding comments */}
