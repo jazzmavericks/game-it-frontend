@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import '../pages/main.css';
 import Logout from '../components/logout';
-import Sidebar from '../components/Sidebar';
 import heartIcon from '../images/insta_heart.png';
 import commentIcon from '../images/insta_comment.png';
 import shareIcon from '../images/insta_share.png';
@@ -40,10 +39,6 @@ function Main() {
   // Rendering the main component
   return (
     <div className="Main">
-      <div className="sidebar-wrapper">
-        {/* Rendering the Sidebar component */}
-        <Sidebar />
-      </div>  
       <div className="mainContent">
         <div className="columns-container">
           <div className="left-column">
