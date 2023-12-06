@@ -3,8 +3,12 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RegisterForm from './components/registerForm';
 import LoginForm from './components/LoginForm';
-import Navbar from './components/navbar';
+import Footer from './components/footer';
+import Navbar from './components/Navbar';
+import About from './pages/about';
 import Main from './pages/main';
+import GamesLibrary from './pages/gamesLibrary';
+
 
 // Main component named App
 function App() {
@@ -17,6 +21,7 @@ function App() {
   return (
     <div>
       <Navbar loggedIn={loggedIn} email={email}></Navbar>
+      {/* BrowserRouter to manage routing */}
       <BrowserRouter>
         <Routes>
           {/* Route for the 'Main' component */}
@@ -59,8 +64,29 @@ function App() {
               registered={registered} setRegistered={setRegistered}
             />}
           />
+            {/* Route for the 'About' component on '/about' path */}
+            <Route
+            exact
+            path="/about"
+            element={<About
+              email={email} setEmail={setEmail}
+              loggedIn={loggedIn} setLoggedIn={setLoggedIn}
+              registered={registered} setRegistered={setRegistered}
+            />}
+          />
+            {/* Route for the 'GamesLibrary' component on '/gamesLibrary' path */}
+            <Route
+            exact
+            path="/gamesLibrary"
+            element={<GamesLibrary
+              email={email} setEmail={setEmail}
+              loggedIn={loggedIn} setLoggedIn={setLoggedIn}
+              registered={registered} setRegistered={setRegistered}
+            />}
+          />
         </Routes>
       </BrowserRouter>
+      <Footer></Footer>
     </div>
   );
 }
