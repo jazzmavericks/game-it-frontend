@@ -1,10 +1,11 @@
 // Importing necessary modules, assets, and components
 import React from "react";
 import "../navbar.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from 'react-router-dom';
 import instaLogo from "../images/insta_logo.png";
 
 function Navbar({loggedIn, email}) {
+
   return (
     <div className="navbar">
       <div className="logoBox">
@@ -12,13 +13,13 @@ function Navbar({loggedIn, email}) {
       </div>
       <div className="navMenuNotLoggedIn">
         <ul>
-          <li>Home</li>
-          <li>Games Library</li>
+          <li><Link className="link" to={"/main"}>Home</Link></li>
+          <li><Link className="link" to={"/gamesLibrary"}>Games Library</Link></li>
           {loggedIn &&
           <><li>My Games</li><li>Profile</li></>
           }
           <li>News</li>
-          <li>About</li>
+          <li><Link className="link" to={"/about"}>About</Link></li>
         </ul>
       </div>
       {loggedIn ?
@@ -36,8 +37,8 @@ function Navbar({loggedIn, email}) {
       :
         <div className="loggedoutMenu">
         <ul>
-          <li>Login</li>
-          <li>Register</li>
+          <li><Link className="link" to={"/login"}>Login</Link></li>
+          <li><Link className="link" to={"/register"}>Register</Link></li>
       </ul>
         </div>
 }

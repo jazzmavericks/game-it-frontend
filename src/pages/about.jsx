@@ -14,7 +14,7 @@ function About() {
   return (
     <div className="mainLayout">
         <div className="heroImage">
-        <div class="overlay"></div>
+        <div className="overlay"></div>
             <img className="team-logo" src={TeamLogo} alt="Team Logo" />
         </div>
         <div className="aboutText">

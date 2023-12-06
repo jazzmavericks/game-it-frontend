@@ -39,8 +39,6 @@ function Main() {
   return (
     <div>
           <Slider></Slider>
-          <button onClick={clickHandler} >Press Me</button>
-          <AllGames></AllGames>
     </div>
 
   );
