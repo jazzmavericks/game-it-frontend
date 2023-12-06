@@ -20,6 +20,7 @@ function App() {
   // Rendered JSX for the application
   return (
     <div>
+      <Navbar loggedIn={loggedIn} email={email}></Navbar>
       {/* BrowserRouter to manage routing */}
       <BrowserRouter>
         <Routes>
