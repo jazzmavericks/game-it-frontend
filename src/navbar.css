@@ -9,6 +9,7 @@
   background: linear-gradient(to right, #1C1C23, #2f2f3f);
   color: #3E92CC;
   padding: 10px 20px 30px 10px;
+}
 
 ul {
   list-style-type: none;
@@ -34,3 +35,4 @@ li:hover {
 
 span {
   line-height: 1;
+}
