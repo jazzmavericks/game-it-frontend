@@ -36,3 +36,8 @@ li:hover {
 span {
   line-height: 1;
 }
+
+.link {
+  color: #3E92CC;
+  text-decoration: none;
+}
