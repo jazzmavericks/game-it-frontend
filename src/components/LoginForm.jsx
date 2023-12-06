@@ -19,7 +19,7 @@ function LoginForm(props) {
     async function sendLoginToBackEnd(email, password, setLoggedIn, setRegistered) {
         try {
             const response = await fetch(
-                "https://end-user-api2.onrender.com/loginUser",
+                "http://localhost:5001/loginUser",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },

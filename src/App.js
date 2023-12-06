@@ -20,7 +20,6 @@ function App() {
   // Rendered JSX for the application
   return (
     <div>
-      <Navbar></Navbar>
       {/* BrowserRouter to manage routing */}
       <BrowserRouter>
         <Routes>

@@ -18,7 +18,7 @@ function RegisterForm(props) {
         try {
             // Sending a POST request with registration data
             const response = await fetch(
-                "https://end-user-api2.onrender.com/register",
+                "http://localhost:5001/register",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
