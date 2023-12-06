@@ -1,50 +1,32 @@
 // Importing necessary modules, assets, and components
-import React from "react";
-import "../navbar.css";
-import { Link, Navigate } from 'react-router-dom';
-import instaLogo from "../images/insta_logo.png";
+import React from 'react';
+import '../Navbar.css';
+import { Link } from 'react-router-dom';
+import instaLogo from '../images/insta_logo.png';
 
-function Navbar({loggedIn, email}) {
-
+// Creating a functional component named Nav Bar
+function Navbar() {
   return (
-    <div className="navbar">
-      <div className="logoBox">
+    <div className="navBar">
+      <div className="logoSection">
         <img className="logo" src={instaLogo} alt="Instagram Logo" />
       </div>
       <div className="navMenuNotLoggedIn">
         <ul>
-          <li><Link className="link" to={"/main"}>Home</Link></li>
-          <li><Link className="link" to={"/gamesLibrary"}>Games Library</Link></li>
-          {loggedIn &&
-          <><li>My Games</li><li>Profile</li></>
-          }
+          <li>Home</li>
+          <li>Games Library</li>
           <li>News</li>
-          <li><Link className="link" to={"/about"}>About</Link></li>
+          <li>About</li>
         </ul>
       </div>
-      {loggedIn ?
-      <div className="loggedInMenu">
-<ul>
-<li>
-  Welcome {email}
-</li>
-<li>
-  log out
-</li>
-</ul>
-
-      </div>
-      :
-        <div className="loggedoutMenu">
+      <div className="loginSectionNotLoggedIn">
         <ul>
-          <li><Link className="link" to={"/login"}>Login</Link></li>
-          <li><Link className="link" to={"/register"}>Register</Link></li>
-      </ul>
-        </div>
-}
+          <li>Login</li>
+          <li>Register</li>
+        </ul>
       </div>
+    </div>
   );
 }
 
 export default Navbar;
-

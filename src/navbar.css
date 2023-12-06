@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.navbar {
+.navBar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -35,9 +35,4 @@ li:hover {
 
 span {
   line-height: 1;
-}
-
-.link {
-  color: #3E92CC;
-  text-decoration: none;
 }
