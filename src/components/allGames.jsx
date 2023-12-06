@@ -9,7 +9,7 @@ const AllGames = () => {
     useEffect(() => {
       const fetchGames = async () => {
         try {
-          const res = await fetch(`https://rawg.io/api/games?token&key=${process.env.REACT_APP_RAWG_KEY}`, mode:{no-cors};)
+          const res = await fetch(`https://rawg.io/api/games?token&key=${process.env.REACT_APP_RAWG_KEY}`, mode:{no-cors});
           const data = await res.json();
           console.log(data);
           setGames(data.results);
