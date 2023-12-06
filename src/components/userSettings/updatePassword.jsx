@@ -1,53 +1,89 @@
-import { readcookie } from "../../utils/utilities";
+import { useState } from "react";
+import { readCookie } from "../../utils/utilities";
+import '../../components/registerForm';
 
-function UpdatePassword(props){
-    async function sendUpdatePasswordToBackend(email, password, newPassword, setLoggedIn) {
-        try {
-            console.log(email)
-            const response = await fetch(
-                "http://localhost:5001/chPassword", {
-                    method: "PUT",
-                    headers: {"Content-Type" : "application/json"},
-                    body: JSON.stringify({
-                        email: findUser,
-                        password: password,
-                        newPassword: password
-                    })
-                }
-            )
-            const data = await response.json();
-            console.log(data);
-            readcookie("jwt_token");
-            setLoggedIn(true);
-        } catch (error) {
-            console.log(error)
+function UpdatePassword(props) {
+  const [newPassword, setNewPassword] = useState('');
+
+  async function sendUpdatePasswordToBackend(email, password, newPassword, setLoggedIn) {
+    try {
+      const jwtToken = readCookie("jwt_token"); // Move this line here
+      console.log(email);
+      console.log(newPassword);
+      console.log('Current password:', password);
+      const response = await fetch(
+        "http://localhost:5001/chPassword", {
+          method: "PUT",
+          headers: { 
+            "Content-Type": "application/json",
+            "Authorization": jwtToken ? `Bearer ${jwtToken}` : '',  // Use jwtToken only when available
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+            newPassword: newPassword,
+          }),
         }
-    }
+      );
 
-    function handleSubmit(event) {
-        sendUpdatePasswordToBackend(props.email, props.password, props.newPassword, props.setLoggedIn)
-    }
-    console.log(props.password)
+      const data = await response.json();
+      console.log(data);
 
-    return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input 
-                    className="passwordbox" 
-                    type="text" 
-                    id="password" 
-                    placeholder="Password"
-                    required 
-                    onChange = {(event) => props.newPassword(event.target.value)}>
-                </input>
-                <br />
-                <input
-                    type="submit" 
-                    value="change password">
-                </input>
-            </form>
-        </div>
-    )
-};
+      setLoggedIn(true);
+    } catch (error) {
+      console.error("Error updating password:", error.message);
+    }
+  }
+
+  function handleNewPasswordChange(event) {
+    // Update the new password value in the parent component
+    setNewPassword(event.target.value);
+  }
+
+  function handleCurrentPasswordChange(event) {
+    // Update the current password value in the parent component
+    props.setPassword(event.target.value);
+  
+    // Log the updated password immediately after setting it
+    console.log('Updated password:', event.target.value);
+  }
+
+  function handleSubmit(event) {
+    console.log('Password changed')
+    event.preventDefault(); // Prevent the default form submission
+    console.log(props);
+    sendUpdatePasswordToBackend(props.email, props.password, newPassword, props.setLoggedIn);
+  }
+
+  console.log(props.password);
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="password"
+          id="currentPassword"
+          placeholder="Enter your current password"
+          required
+          value={props.password}
+          onChange={handleCurrentPasswordChange}
+        />
+        <input
+          className="passwordbox"
+          type="password"
+          id="password"
+          placeholder="Enter your new password"
+          required
+          onChange={handleNewPasswordChange} 
+        />
+        <br />
+        <input
+          type="submit"
+          value="Change Password"
+        />
+      </form>
+    </div>
+  );
+}
 
 export default UpdatePassword;

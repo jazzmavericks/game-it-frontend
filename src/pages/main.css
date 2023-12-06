@@ -255,3 +255,10 @@ h1, h2, h3 {
   width: 15px;
   filter: grayscale(50%);
 }
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
