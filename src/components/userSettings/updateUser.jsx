@@ -1,30 +1,47 @@
-import { readcookie } from "../../utils/utilities";
+import { readCookie } from "../../utils/utilities";
+import React, { useState } from 'react';
 
 function UpdateUser(props){
-    async function sendUpdateUserToBackend(email, setLoggedIn) {
+    const [newUsername, setNewUsername] = useState('');
+
+    async function sendUpdateUserToBackend(email, newUsername, setLoggedIn) {
         try {
-            console.log(email)
+            console.log(email);
+            console.log(newUsername);
             const response = await fetch(
                 "http://localhost:5001/chUsername", {
                     method: "PUT",
                     headers: {"Content-Type" : "application/json"},
                     body: JSON.stringify({
-                        email: newUsername
+                        email: email,
+                        newUsername: newUsername
                     })
                 }
             )
             const data = await response.json();
             console.log(data);
-            readcookie("jwt_token");
+        if (response.ok && data.message === 'username updated') {
+            readCookie("jwt_token");
             setLoggedIn(true);
+        } else {
+            // Handle other scenarios or provide error feedback to the user.
+            console.error('Failed to update username:', data.message);
+        }
+
         } catch (error) {
             console.log(error)
+        }
     }
-}
-    function handleSubmit(event) {
-        sendUpdateUserToBackend(props.email, props.setLoggedIn)
-    }
-    console.log(props.email)
+        function handleNewUsernameChange(event) {
+            setNewUsername(event.target.value);
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            console.log(props);
+            sendUpdateUserToBackend(props.email, newUsername, props.setLoggedIn)
+        }
+        console.log(props.email)
 
     return (
         <div>
@@ -33,14 +50,14 @@ function UpdateUser(props){
                     className="emailbox" 
                     type="text" 
                     id="email" 
-                    placeholder="Phone number, username, or email"
+                    placeholder="Enter a new username"
                     required 
-                    onChange = {(event) => props.setEmail(event.target.value)}>
+                    onChange={handleNewUsernameChange}>
                 </input>
                 <br />
                 <input
                     type="submit" 
-                    value="change username">
+                    value="Change username">
                 </input>
             </form>
         </div>

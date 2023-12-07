@@ -4,15 +4,13 @@ import '../pages/main.css';
 import Slider from '../components/heroSlider';
 import { GetGameData } from '../utils/getGameData';
 import AllGames from '../components/allGames';
+import UserSettings from './userSettings';
 
 // Creating a functional component named Main
-function Main() {
-  // Using useState hook to manage various state variables
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [registered, setRegistered] = useState(false);
-  const [userList, setUserList] = useState([]);
+function Main(props) {
+  console.log(props);
+  console.log(props.email);
+  
   const [photos, setPhotos] = useState([]);
 
   // Function to fetch images from an external API using async-await
@@ -39,6 +37,9 @@ function Main() {
   return (
     <div>
           <Slider></Slider>
+          <UserSettings 
+            email={props.email} setEmail={props.setEmail}
+          />
     </div>
 
   );
