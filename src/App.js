@@ -4,10 +4,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RegisterForm from './components/registerForm';
 import LoginForm from './components/LoginForm';
 import Footer from './components/footer';
-import Navbar from './components/Navbar';
+// import Navbar from './components/navbar';
 import About from './pages/about';
 import Main from './pages/main';
 import GamesLibrary from './pages/gamesLibrary';
+import Navbar from './components/Navbar.jsx';
 
 
 // Main component named App
@@ -21,7 +22,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <Navbar loggedIn={loggedIn} email={email}></Navbar>
+      <Navbar loggedIn={loggedIn} email={email} setEmail={setEmail}></Navbar>
       {/* BrowserRouter to manage routing */}
         <Routes>
           {/* Route for the 'Main' component */}
