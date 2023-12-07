@@ -11,7 +11,7 @@ export function writecookie(key, value, days) {
 
 };
 
-export function readcookie(key) {
+export function readCookie(key) {
     const re = new RegExp(`(?<=${key}=)[^;]*`)
     try {
         let cookie = document.cookie.match(re)[0];
@@ -20,4 +20,5 @@ export function readcookie(key) {
     } catch (error) {
         return false;
     }
+
 };

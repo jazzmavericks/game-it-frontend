@@ -10,26 +10,34 @@ import { useState } from "react";
 // Creating a functional component named LoginForm
 function LoginForm(props) {
     // Using the useState hook to manage the password state
-    const [password, setPassword] = useState();
+    const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
     // Using the useNavigate hook from react-router-dom
     const navigate = useNavigate();
 
     // Function to send login data to the backend for authentication
     async function sendLoginToBackEnd(email, password, setLoggedIn, setRegistered) {
-        try {
-            const response = await fetch(
-                "https://end-user-api2.onrender.com/loginUser",
-                {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        email: email,
-                        password: password
-                    })
-                }
-            );
+    console.log('Email:', email);
+    console.log('Password:', password);
+    try {
+        setLoading(true);
+        const response = await fetch(
+            "http://localhost:5001/loginUser",
+            {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            }
+        );
 
+        console.log('Response Status:', response.status);
+
+        if (response.status === 201) {
             // Parsing the response into JSON format
             const data = await response.json();
             console.log(data.token);
@@ -43,16 +51,22 @@ function LoginForm(props) {
 
             // Navigating to the "/main" route
             navigate("/main");
-        } catch (error) {
-            console.log(error);
+        } else {
+            setError("Invalid username or password. Please try again.");
         }
+    } catch (error) {
+        console.error('Error logging in:', error.message);
+    } finally {
+        setLoading(false);
     }
-
+}
     // Function to handle form submission
     function handleSubmit(event) {
+        console.log('User logged in!');
         event.preventDefault();
-        // Calling the sendLoginToBackEnd function with necessary props
+        setError(""); // Reset error message on form submission
         sendLoginToBackEnd(props.email, password, props.setLoggedIn, props.setRegistered);
+        // Calling the sendLoginToBackEnd function with necessary props
     }
 
     // Rendering the LoginForm component
@@ -85,10 +99,12 @@ function LoginForm(props) {
                         onChange={(event) => setPassword(event.target.value)}
                     ></input>
                     <br></br>
+                    {/* Display error message */}
+                    {error && <p className="error-message">{error}</p>} 
                     {/* Link to registration page */}
                     Don't have an account? <Link className="registerLink" to="/register">Register here.</Link>
                     {/* Submit button for login */}
-                    <input type="submit" value="Log in" />
+                    <input type="submit" value={loading ? "Logging in..." : "Log in"} disabled={loading} />
                 </form>
             </div>
         </div>

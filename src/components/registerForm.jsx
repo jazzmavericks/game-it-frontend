@@ -8,7 +8,7 @@ import '../pages/register.css';
 // Creating a functional component named RegisterForm
 function RegisterForm(props) {
     // Initializing state variables using the useState hook
-    const [password, setPassword] = useState();
+    const [password, setPassword] = useState('');
     
     // Using the useNavigate hook from react-router-dom
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ function RegisterForm(props) {
         try {
             // Sending a POST request with registration data
             const response = await fetch(
-                "https://end-user-api2.onrender.com/register",
+                "http://localhost:5001/register",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -43,15 +43,17 @@ function RegisterForm(props) {
             // Navigating to the "/main" route
             navigate("/main");
         } catch (error) {
-            console.log(error);
+            console.error('Error during registration:', error.message);
         }
     }
 
     // Function to handle form submission
     function handleSubmit(event) {
+        console.log(handleSubmit);
+        console.log('Form Submitted!');
         event.preventDefault();
         // Calling sendRegisterToBackEnd with necessary props
-        sendRegisterToBackEnd(props.email, props.password, props.setLoggedIn, props.setRegistered);
+        sendRegisterToBackEnd(props.email, password, props.setLoggedIn, props.setRegistered);
     }
 
     // Rendering the RegisterForm component
