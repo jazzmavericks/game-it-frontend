@@ -4,7 +4,6 @@ import '../pages/main.css';
 import Slider from '../components/heroSlider';
 import { GetGameData } from '../utils/getGameData';
 import AllGames from '../components/allGames';
-import UserSettings from './userSettings';
 
 // Creating a functional component named Main
 function Main(props) {
@@ -36,10 +35,7 @@ function Main(props) {
   // Rendering the main component
   return (
     <div>
-          <Slider></Slider>
-          <UserSettings 
-            email={props.email} setEmail={props.setEmail}
-          />
+      <Slider></Slider>
     </div>
 
   );

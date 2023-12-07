@@ -3,7 +3,7 @@ import UpdatePassword from "../components/userSettings/updatePassword";
 import UpdateUser from "../components/userSettings/updateUser";
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import '../pages/main.css';
+import '../components/navbar.css';
 
 function UserSettings(props) {
     console.log(props);
@@ -17,7 +17,9 @@ function UserSettings(props) {
 
     return (
         <div>
-            <button onClick={openModal}>User Settings</button>
+            <button className="settings-button" onClick={openModal}>
+                <div className="settings-icon">&#9881;</div>
+            </button>
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}

@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Orbitron', sans-serif;
+  height: 50px;
+  background: linear-gradient(to right, #1C1C23, #2f2f3f);
+  color: #3E92CC;
+  padding: 10px 20px 30px 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  display: inline-flex;
+  align-items: center;
+  margin-top:7px;
+  padding: 5px 15px 5px 15px;
+  cursor: pointer;
+}
+
+.menuIcon {
+  margin-right: 10px;
+  padding: none;
+}
+
+li:hover {
+  font-weight: 800;
+}
+
+span {
+  line-height: 1;
+}
+
+.link {
+  color: #3E92CC;
+  text-decoration: none;
+}
+
+/* welcome, logout, settings */
+.list2 {
+  list-style-type: none;
+  padding: none;
+  margin: none;
+  width: 550px;
+  height: 35px;
+}
+
+/* LOGOUT */
+.logoutBtn {
+  font-family: 'Orbitron', sans-serif;
+  height: 50px;
+  color: #3E92CC;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.logoutBtn:hover {
+  font-weight: 800;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/* SETTINGS */
+.settings-icon {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2em;
+  margin-right: 10px;
+}
+
+.settings-button {
+  color: #3E92CC;
+  background-color: transparent;
+  text-decoration: none;
+  padding: none;
+}
+
+.settings-button:hover {
+  font-weight: 800;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/* MODAL USER SETTINGS */
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.model-content {
+  align-items: center;
+  justify-content: center;
+}
+
