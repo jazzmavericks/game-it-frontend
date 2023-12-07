@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.navbar {
+.navBar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -9,6 +9,7 @@
   background: linear-gradient(to right, #1C1C23, #2f2f3f);
   color: #3E92CC;
   padding: 10px 20px 30px 10px;
+}
 
 ul {
   list-style-type: none;
@@ -34,3 +35,4 @@ li:hover {
 
 span {
   line-height: 1;
+}

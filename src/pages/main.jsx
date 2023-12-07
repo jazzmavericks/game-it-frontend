@@ -37,8 +37,6 @@ function Main(props) {
   return (
     <div>
           <Slider></Slider>
-          <button onClick={clickHandler} >Press Me</button>
-          <AllGames></AllGames>
           <UserSettings 
             email={props.email} setEmail={props.setEmail}
           />
