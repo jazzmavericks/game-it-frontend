@@ -1,12 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+:root {
+  --color-blue: #3E92CC;
+  --color-green: #44AF69;
+  --color-white: #E9EDED;
+  --color-grey: #404E4D;
+  --color-black: #1C1C23;
+}
+
 .navBar {
   display: flex;
   justify-content: space-between;
   font-family: 'Orbitron', sans-serif;
   height: 50px;
-  background: linear-gradient(to right, #1C1C23, #2f2f3f);
-  color: #3E92CC;
+  background: linear-gradient(to right, var(--color-black), var(--color-grey));
+  color: var(--color-blue);
   padding: 10px 20px 30px 10px;
 }
 
@@ -38,7 +46,7 @@ span {
 }
 
 .link {
-  color: #3E92CC;
+  color: var(--color-blue);
   text-decoration: none;
 }
 
@@ -49,13 +57,14 @@ span {
   margin: none;
   width: 550px;
   height: 35px;
+  color: var(--color-green);
 }
 
 /* LOGOUT */
 .logoutBtn {
   font-family: 'Orbitron', sans-serif;
   height: 50px;
-  color: #3E92CC;
+  color: var(--color-blue);
   background-color: transparent;
   text-decoration: none;
 }
@@ -74,7 +83,7 @@ span {
 }
 
 .settings-button {
-  color: #3E92CC;
+  color: var(--color-blue);
   background-color: transparent;
   text-decoration: none;
   padding: none;
