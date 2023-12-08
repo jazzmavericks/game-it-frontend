@@ -60,8 +60,11 @@ function RegisterForm(props) {
     return (
         <div className="forms-container">
             <div className="register-section">
-                <img className="logoWhite" src={instaLogo} alt="Instagram Logo" />
-                <p>Sign up to see photos and videos from your friends</p>
+                <img />
+                <h7>game it</h7>
+                <br></br><br></br>
+                <p1>Sign up to view games library</p1>
+                <br></br><br></br>
                 {/* Form for user registration */}
                 <form onSubmit={handleSubmit}>
                     {/* Input field for email */}
@@ -73,7 +76,6 @@ function RegisterForm(props) {
                         required
                         onChange={(event) => props.setEmail(event.target.value)}
                     ></input>
-                    <br />
                     {/* Input field for password */}
                     <input
                         className="passwordbox"
@@ -85,9 +87,9 @@ function RegisterForm(props) {
                     ></input>
                     <br />
                     {/* Additional text for information */}
-                    <p className="regText">People who use our service may have uploaded your contact information to Instagram. Learn more</p>
-                    <p className="regText">By signing up, you agree to our Terms. Learn how we collect, use and share your data in our Privacy Policy and how we use cookies and similar technology in our Cookies Policy.</p>
+                    <p2>By signing up, you agree to our Terms. Learn how we collect, use and share your data in our Privacy Policy and how we use cookies and similar technology in our Cookies Policy.</p2>
                     {/* Submit button for registration */}
+                    <br></br><br></br>
                     <input type="submit" value="Next" />
                 </form>
             </div>

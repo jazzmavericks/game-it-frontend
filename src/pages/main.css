@@ -1,14 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+:root {
+  --color-blue: #3E92CC;
+  --color-green: #44AF69;
+  --color-white: #E9EDED;
+  --color-grey: #404E4D;
+  --color-black: #1C1C23;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .Main {
   display: flex;
-  background-color: #000000;
+  background-color: var(--color-black);
 }
 
 .sidebar-wrapper {
@@ -47,30 +55,30 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  background-color: #0fa9eb;
-  color: #fff;
+  background-color: var(--color-green);
+  color: var(--color-white);
 }
 
 button:hover {
-  background-color: #0fa9eb;
+  background-color: var(--color-blue);
 }
 
 p {
   font-size: 18px;
-  color: #fff;
+  color: var(--color-white);
   font-family: 'Roboto', sans-serif;
 }
 
 hr {
   border: none;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid var(--color-white);
   margin: 20px 0;
 }
 
 h1, h2, h3 {
   font-family: 'Roboto', sans-serif;
   margin-bottom: 5px;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .uploadImage {
@@ -109,7 +117,7 @@ h1, h2, h3 {
 .card {
   padding-bottom: 20px;
   margin-bottom: 40px;
-  border-bottom: 1px solid #4f4f4f;
+  border-bottom: 1px solid var(--color-grey);
 }
 
 .logo {
@@ -162,7 +170,7 @@ h1, h2, h3 {
 }
 
 .logoutRow p {
-  color: white;
+  color: var(--color-white);
   font-size: 12px;
   margin: 0px;
 }
@@ -172,26 +180,10 @@ h1, h2, h3 {
 }
 
 .logoutRow h1 {
-  color: white;
+  color: var(--color-white);
   font-size: 13px;
   font-weight: 600;
   margin: 0px;
-}
-
-.logoutButton {
-  padding: 2px 2px;
-  margin: 2px;
-  font-size: 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #000000;
-  color: rgb(22, 110, 243);
-}
-
-.logoutButton:hover {
-  color: #fff;
-  background-color: #000000;
 }
 
 .suggestedHeader {
@@ -202,13 +194,13 @@ h1, h2, h3 {
 }
 
 .suggestedHeader p {
-  color: white;
+  color: var(--color-white);
   font-size: 12px;
   margin: 0px;
 }
 
 .suggestedHeader h1 {
-  color: white;
+  color: var(--color-white);
   font-size: 13px;
   font-weight: 600;
   margin: 0px;
@@ -233,7 +225,7 @@ h1, h2, h3 {
 .commentBox p {
   margin: 7px 0 0 5px;
   font-size: 14px;
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 .addCommentBox {

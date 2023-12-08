@@ -72,11 +72,14 @@ function LoginForm(props) {
     // Rendering the LoginForm component
     return (
         <div className="forms-container">
-            <div className="loginPicture">
+            {/* <div className="loginPicture">
                 <img className="loginImage" src={loginImage} alt="Login Image" />
-            </div>
+            </div> */}
             <div className="login-section">
-                <img className="logoWhite" src={instaLogo} alt="Instagram Logo" />
+                <img  />
+                <h7>game it</h7>
+                <br></br>
+                <br></br>
                 {/* Form for user login */}
                 <form onSubmit={handleSubmit}>
                     {/* Input field for email */}
@@ -88,7 +91,6 @@ function LoginForm(props) {
                         required
                         onChange={(event) => props.setEmail(event.target.value)}
                     ></input>
-                    <br></br>
                     {/* Input field for password */}
                     <input
                         className="passwordbox"
@@ -102,7 +104,12 @@ function LoginForm(props) {
                     {/* Display error message */}
                     {error && <p className="error-message">{error}</p>} 
                     {/* Link to registration page */}
-                    Don't have an account? <Link className="registerLink" to="/register">Register here.</Link>
+                    Don't have an account?  
+                    <Link 
+                        className="registerLink" 
+                        to="/register" 
+                        style={{ color: '#3E92CC'}}
+                    > Register here.</Link>
                     {/* Submit button for login */}
                     <input type="submit" value={loading ? "Logging in..." : "Log in"} disabled={loading} />
                 </form>
