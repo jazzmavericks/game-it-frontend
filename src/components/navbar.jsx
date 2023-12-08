@@ -10,7 +10,7 @@ function Navbar({loggedIn, email, setEmail}) {
   return (
     <div className="navBar">
       <div className="logoBox">
-      <Link className="link" to="/main"><img className="logo" src={gameItLogo} alt="Instagram Logo" /></Link>
+      <Link className="link" to="/main"><img className="logo" src={gameItLogo} alt={gameItLogo} /></Link>
       </div>
       <div>
         <ul>

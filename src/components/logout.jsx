@@ -22,7 +22,7 @@ function Logout(props) {
             console.log("logged out");
             
             // Navigating to the "/login" route
-            navigate("/login");
+            navigate("/main");
         } catch (error) {
             console.log(error);
         }
