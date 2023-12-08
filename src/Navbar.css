@@ -41,3 +41,8 @@ span {
   color: #3E92CC;
   text-decoration: none;
 }
+
+.logo {
+  padding-top:20px;
+  padding-left:20px;
+}
