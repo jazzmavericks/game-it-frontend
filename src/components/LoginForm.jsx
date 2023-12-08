@@ -24,7 +24,7 @@ function LoginForm(props) {
     try {
         setLoading(true);
         const response = await fetch(
-            "https://game-it-backend.onrender.com/loginUser",
+            `${process.env.REACT_APP_BASE_URL}/loginUser`,
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

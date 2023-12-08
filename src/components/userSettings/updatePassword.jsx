@@ -12,7 +12,7 @@ function UpdatePassword(props) {
       console.log(newPassword);
       console.log('Current password:', password);
       const response = await fetch(
-        "http://localhost:5001/chPassword", {
+        `${process.env.REACT_APP_BASE_URL}/chPassword`, {
           method: "PUT",
           headers: { 
             "Content-Type": "application/json",

@@ -9,7 +9,7 @@ function UpdateUser(props){
             console.log(email);
             console.log(newUsername);
             const response = await fetch(
-                "http://localhost:5001/chUsername", {
+                `${process.env.REACT_APP_BASE_URL}/chUsername`, {
                     method: "PUT",
                     headers: {"Content-Type" : "application/json"},
                     body: JSON.stringify({
