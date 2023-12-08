@@ -50,6 +50,11 @@ span {
   text-decoration: none;
 }
 
+.logo {
+  padding-top:20px;
+  padding-left:20px;
+}
+
 /* welcome, logout, settings */
 .list2 {
   list-style-type: none;
