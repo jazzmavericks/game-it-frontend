@@ -18,7 +18,7 @@ function RegisterForm(props) {
         try {
             // Sending a POST request with registration data
             const response = await fetch(
-                "http://localhost:5001/register",
+                "https://game-it-backend.onrender.com/register",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -37,7 +37,7 @@ function RegisterForm(props) {
             writecookie("jwt_token", data.token, 7);
 
             // Setting loggedIn and registered states
-            setLoggedIn(false);
+            setLoggedIn(true);
             setRegistered(true);
 
             // Navigating to the "/main" route

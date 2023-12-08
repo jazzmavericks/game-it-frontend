@@ -6,10 +6,13 @@ import instaLogo from "../images/insta_logo.png";
 import Logout from "./logout.jsx";
 import UserSettings from "../pages/userSettings.jsx";
 
+
 function Navbar({loggedIn, email, setEmail}) {
   return (
+
     <div className="navBar">
       <div className="logoBox">
+      <h1>hello</h1>
         <img className="logo" src={instaLogo} alt="Instagram Logo" />
       </div>
       <div>
