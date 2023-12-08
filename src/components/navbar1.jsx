@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "./navbar.css";
 import { Link, Navigate } from 'react-router-dom';
-import instaLogo from "../images/insta_logo.png";
+import gameItLogo from "../images/gameItLogo.png";
 import Logout from "./logout.jsx";
 import UserSettings from "../pages/userSettings.jsx";
 
@@ -10,7 +10,7 @@ function Navbar({loggedIn, email, setEmail}) {
   return (
     <div className="navBar">
       <div className="logoBox">
-        <img className="logo" src={instaLogo} alt="Instagram Logo" />
+      <Link className="link" to="/main"><img className="logo" src={gameItLogo} alt="Instagram Logo" /></Link>
       </div>
       <div>
         <ul>
