@@ -18,7 +18,7 @@ function RegisterForm(props) {
         try {
             // Sending a POST request with registration data
             const response = await fetch(
-                "https://game-it-backend.onrender.com/register",
+                `${process.env.REACT_APP_BASE_URL}/register`,
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },

@@ -9,7 +9,7 @@ function DeleteAccount(props) {
   async function sendDeleteAccountToBackend(email, setLoggedIn, setRegistered) {
     try {
       const response = await fetch(
-        "http://localhost:5001/deleteAccount",
+        `${process.env.REACT_APP_BASE_URL}/deleteAccount`,
         {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
