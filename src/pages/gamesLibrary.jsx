@@ -4,7 +4,7 @@ import { GetGameData } from '../utils/getGameData';
 import AllGames from '../components/allGames';
 import SearchBox from '../components/searchBox';
 
-function Main() {
+function Main(props) {
     const [selectedOption, setSelectedOption] = useState('alphabetical');
 
     const [showPlatform, setShowPlatform] = useState(true);
@@ -114,7 +114,7 @@ function Main() {
                 </div>
             </div>
             <div className="gamesSection">
-                <AllGames></AllGames>
+                <AllGames email={props.email}></AllGames>
             </div>
         </div>
     </div>
