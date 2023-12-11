@@ -17,6 +17,7 @@ function RegisterForm(props) {
     async function sendRegisterToBackEnd(email, password, setLoggedIn, setRegistered) {
         try {
             // Sending a POST request with registration data
+            console.log(process.env.REACT_APP_BASE_URL)
             const response = await fetch(
                 `${process.env.REACT_APP_BASE_URL}/register`,
                 {
