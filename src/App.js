@@ -8,6 +8,7 @@ import Footer from './components/footer';
 import About from './pages/about';
 import Main from './pages/main';
 import GamesLibrary from './pages/gamesLibrary';
+import MyGames from './pages/MyGames.jsx';
 import Navbar from './components/Navbar.jsx';
 
 
@@ -84,7 +85,17 @@ function App() {
               loggedIn={loggedIn} setLoggedIn={setLoggedIn}
               registered={registered} setRegistered={setRegistered}
             />}
-          />
+            />
+              {/* Route for the 'MyGames' component on '/MyGames' path */}
+              <Route
+                exact
+                path="/MyGames"
+                element={<MyGames
+                email={email} setEmail={setEmail}
+                loggedIn={loggedIn} setLoggedIn={setLoggedIn}
+                registered={registered} setRegistered={setRegistered}
+              />}
+              />
         </Routes>
       </BrowserRouter>
       <Footer></Footer>

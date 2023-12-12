@@ -38,7 +38,7 @@ function RegisterForm(props) {
             writecookie("jwt_token", data.token, 7);
 
             // Setting loggedIn and registered states
-            setLoggedIn(false);
+            setLoggedIn(true);
             setRegistered(true);
 
             // Navigating to the "/main" route
