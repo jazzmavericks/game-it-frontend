@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../components/allGames.css';
+import { Link } from 'react-router-dom';
 import Playing from './gameStatus/playing';
 import Owned from './gameStatus/owned';
 import Want from './gameStatus/want';
@@ -9,7 +10,6 @@ const AllGames = (props) => {
     const [games, setGames] = useState([]);
     const [previousPage, setPreviousPage] = useState('');
     const [nextPage, setNextPage] = useState('');
-    const [gameID, setGameID] = useState('');
   
     useEffect(() => {
       const fetchGames = async () => {
@@ -78,7 +78,10 @@ const AllGames = (props) => {
             <div className="gameItem" key={game.id}>
               <img className="gameImage" src={game.background_image} alt={game.name} />
               <h3 className="gameTitle">{game.name}</h3>
-              <button className="findOutMore">FIND OUT MORE</button>
+              {/* Find Out More button linked to GameDetails */}
+              <Link to={{pathname:"/GameDetails",state:{gameIdenifier:game.id}}}>
+                <button className="findOutMore">FIND OUT MORE</button>
+              </Link>
               <div className="controls">
                 <div className="control">
                   <div><Owned email={props.email} gameID={game.id}/></div>

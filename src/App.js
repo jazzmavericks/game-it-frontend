@@ -4,11 +4,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RegisterForm from './components/registerForm';
 import LoginForm from './components/LoginForm';
 import Footer from './components/footer';
-// import Navbar from './components/navbar';
 import About from './pages/about';
 import Main from './pages/main';
 import GamesLibrary from './pages/gamesLibrary';
 import Navbar from './components/Navbar.jsx';
+import GameDetails from './pages/GameDetails.jsx';
 
 
 // Main component named App
@@ -17,6 +17,7 @@ function App() {
   const [email, setEmail] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [registered, setRegistered] = useState(false);
+  const [gameID, setGameID] = useState();
 
   // Rendered JSX for the application
   return (
@@ -83,6 +84,15 @@ function App() {
               email={email} setEmail={setEmail}
               loggedIn={loggedIn} setLoggedIn={setLoggedIn}
               registered={registered} setRegistered={setRegistered}
+              gameID = {gameID} setGameID = {setGameID}
+            />}
+          />
+            {/* Route for the 'GameDetails' component on '/GameDetails' path */}
+            <Route
+            exact
+            path="/GameDetails"
+            element={<GameDetails
+
             />}
           />
         </Routes>

@@ -278,7 +278,7 @@ return (
                         ))}
                     </div>
                 </Modal>
-                <AllGames email={props.email}></AllGames>
+                <AllGames gameID={props.gameID} setGameID={props.setGameID} email={props.email}></AllGames>
             </div>
         </div>
     </div>
