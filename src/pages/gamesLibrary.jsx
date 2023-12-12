@@ -11,84 +11,116 @@ import Want from '../components/gameStatus/want';
 import Completed from '../components/gameStatus/completed';
 
 function Main(props) {
-    const [selectedOption, setSelectedOption] = useState('alphabetical');
+    const [selectedOption, setSelectedOption] = useState('rating');
     const [games, setGames] = useState([]);
+    const [previousPage, setPreviousPage] = useState('');
+    const [nextPage, setNextPage] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [gameData, setGameData] = useState(null);
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [showPlaystation3, setShowPlaystation3] = useState(true);
-    const [showPlaystation4, setShowPlaystation4] = useState(true);
-    const [showPlaystation5, setShowPlaystation5] = useState(true);
-    const [showPC, setShowPC] = useState(true);
-    const [showXbox360, setShowXbox360] = useState(true);
-    const [showXboxOne, setShowXboxOne] = useState(true);
-    const [showXboxSX, setShowXboxSX] = useState(true);
+    // const [showPlaystation3, setShowPlaystation3] = useState(true);
+    // const [showPlaystation4, setShowPlaystation4] = useState(true);
+    // const [showPlaystation5, setShowPlaystation5] = useState(true);
+    // const [showPC, setShowPC] = useState(true);
+    // const [showXbox360, setShowXbox360] = useState(true);
+    // const [showXboxOne, setShowXboxOne] = useState(true);
+    // const [showXboxSX, setShowXboxSX] = useState(true);
+
+    const handlePreviousPage = async () => {
+        if (previousPage) {
+          try {
+            const res = await fetch(previousPage);
+            const data = await res.json();
+            setGames(data.results);
+            setPreviousPage(data.previous);
+            setNextPage(data.next);
+          } catch (error) {
+            console.log(error);
+          }
+        }
+      };
+    
+      const handleNextPage = async () => {
+        if (nextPage) {
+          try {
+            const res = await fetch(nextPage);
+            const data = await res.json();
+            setGames(data.results);
+            setPreviousPage(data.previous);
+            setNextPage(data.next);
+          } catch (error) {
+            console.log(error);
+          }
+        }
+      };
 
 // For handling PlayStation 3 change
-const handlePlaystation3Change = () => {
-    setShowPlaystation3(!showPlaystation3);
-};
+// const handlePlaystation3Change = () => {
+//     setShowPlaystation3(!showPlaystation3);
+// };
 
 // For handling PlayStation 4 change
-const handlePlaystation4Change = () => {
-    setShowPlaystation4(!showPlaystation4);
-};
+// const handlePlaystation4Change = () => {
+//     setShowPlaystation4(!showPlaystation4);
+// };
 
 // For handling PlayStation 5 change
-const handlePlaystation5Change = () => {
-    setShowPlaystation5(!showPlaystation5);
-};
+// const handlePlaystation5Change = () => {
+//     setShowPlaystation5(!showPlaystation5);
+// };
 
 // For handling PC change
-const handlePCChange = () => {
-    setShowPC(!showPC);
-};
+// const handlePCChange = () => {
+//     setShowPC(!showPC);
+// };
 
 // For handling Xbox 360 change
-const handleXbox360Change = () => {
-    setShowXbox360(!showXbox360);
-};
+// const handleXbox360Change = () => {
+//     setShowXbox360(!showXbox360);
+// };
 
 // For handling Xbox One change
-const handleXboxOneChange = () => {
-    setShowXboxOne(!showXboxOne);
-};
+// const handleXboxOneChange = () => {
+//     setShowXboxOne(!showXboxOne);
+// };
 
 // For handling Xbox Series S/X change
-const handleXboxSXChange = () => {
-    setShowXboxSX(!showXboxSX);
+// const handleXboxSXChange = () => {
+//     setShowXboxSX(!showXboxSX);
+// };
+
+const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
 };
 
-    const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
-    };
+const fetchGameData = async (searchTerm, setSearchResults, setSelectedOption) => {
+    try {
+        const data = await GetGameData(searchTerm, setSearchResults, setSelectedOption);
+        setGameData(data);
+        setModalIsOpen(true); // Open the modal after fetching data
+        setPreviousPage(data.previous);
+        setNextPage(data.next);
+    } catch (error) {
+        console.log(error);
+    }
+};
 
-    const fetchGameData = async (searchTerm, setSearchResults, setSelectedOption) => {
-        try {
-            const data = await GetGameData(searchTerm, setSearchResults, setSelectedOption);
-            setGameData(data);
-            setModalIsOpen(true); // Open the modal after fetching data
-        } catch (error) {
-            console.log(error);
-        }
-    };
+const handleSearch = (searchTerm, searchResults) => {
+    fetchGameData(searchTerm, setSearchResults, setSelectedOption);
+    console.log(searchTerm);
+    console.log(searchResults);
+};
 
-    const handleSearch = (searchTerm, searchResults) => {
-        fetchGameData(searchTerm, setSearchResults, setSelectedOption);
-        console.log(searchTerm);
-        console.log(searchResults);
-    };
+const closeModal = () => {
+    setModalIsOpen(false); // Close the modal
+    setGameData(null); // Reset gameData when modal closes
+};
 
-    const closeModal = () => {
-        setModalIsOpen(false); // Close the modal
-        setGameData(null); // Reset gameData when modal closes
-    };
-
-  async function clickHandler() {
+async function clickHandler() {
     await GetGameData();
-  }
+}
 
-  return (
+return (
     <div className="libraryBody">
         <div className="headerSection">
           <h1>Games Library</h1>
@@ -154,7 +186,7 @@ const handleXboxSXChange = () => {
                     </label>
                     <br />
                 </div>
-                <div className="filterBy">
+                {/* <div className="filterBy">
                     <h1>Filter By</h1>
                     <hr />
                     Platform
@@ -193,7 +225,7 @@ const handleXboxSXChange = () => {
                     <input type="checkbox" checked={showXboxSX} onChange={handleXboxSXChange} />
                     Xbox Series S/X
                     </label>
-                </div>
+                </div> */}
             </div>
             <div className="gamesSection">
             <Modal
@@ -210,8 +242,20 @@ const handleXboxSXChange = () => {
                         },
                     }}
                 >
-                    <button onClick={closeModal}>Close</button>
+                    <button className="closeButton" onClick={closeModal}>Close</button>
                     {/* Display game data in the modal */}
+                    <div className="paginationControlsModal">
+                        {previousPage && ( // Check if previousPage exists and is not null
+                        <button className="paginationButtonModal" onClick={handlePreviousPage}>
+                        PREVIOUS
+                        </button>
+                        )}
+                        {nextPage && ( // Check if nextPage exists and is not null
+                        <button className="paginationButtonModal" onClick={handleNextPage}>
+                        NEXT
+                        </button>
+                        )}
+                    </div>
                     <div className="gamesContainer">
                         {searchResults && searchResults.results && searchResults.results.map((game) => (
                             <div className="gameItem" key={game.id}>

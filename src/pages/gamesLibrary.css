@@ -78,3 +78,13 @@
     font-family: 'Orbitron', sans-serif;
     font-size: 24px;
 }
+
+label {
+    display: flex; /* Use flexbox for better alignment */
+    align-items: center; /* Vertically center the content */
+    margin-bottom: 10px; /* Add space between labels */
+  }
+
+input[type="radio"] {
+    margin-right: 10px;
+}
