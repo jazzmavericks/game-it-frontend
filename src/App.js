@@ -36,11 +36,11 @@ function App() {
               registered={registered} setRegistered={setRegistered}
             />}
           />
-          {/* Route for the 'LoginForm' component on the root path */}
+          {/* Route for the 'Main' component on the root path */}
           <Route
             exact
             path="/"
-            element={<LoginForm
+            element={<Main
               email={email} setEmail={setEmail}
               loggedIn={loggedIn} setLoggedIn={setLoggedIn}
               registered={registered} setRegistered={setRegistered}

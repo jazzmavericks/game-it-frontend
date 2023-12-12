@@ -79,7 +79,7 @@ const AllGames = (props) => {
               <img className="gameImage" src={game.background_image} alt={game.name} />
               <h3 className="gameTitle">{game.name}</h3>
               {/* Find Out More button linked to GameDetails */}
-              <Link to={{pathname:"/GameDetails",state:{gameIdenifier:game.id}}}>
+              <Link to="/GameDetails" state={{gameIdentifier:game.id}}>
                 <button className="findOutMore">FIND OUT MORE</button>
               </Link>
               <div className="controls">

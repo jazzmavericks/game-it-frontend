@@ -1,39 +1,73 @@
 import React, { useState, useEffect } from 'react';
-import '../pages/main.css';
+import {useLocation} from 'react-router-dom';
+import '../pages/GameDetails.css';
 import { GetGameData } from '../utils/getGameData';
 
 const GameDetails = (props) => {
     const [gameDetails, setGameDetails] = useState(null);
-    console.log(props);
-    useEffect(() => {
-      const gameId = props.gameID; // Using optional chaining
-  
-      const fetchGameDetails = async () => {
-        try {
-          if (gameId) {
-            const response = await fetch(`https://api.rawg.io/api/games/${gameId}?key=${process.env.REACT_APP_RAWG_KEY}`);
-            const data = await response.json();
-            setGameDetails(data);
-            console.log(props.gameID);
-          }
-        } catch (error) {
-          console.error('Error fetching game details: ', error);
-        }
-      };
-  
-      fetchGameDetails();
-    }, [props.gameID?.params?.id]); // Using optional chaining in the dependency array
+    const Location = useLocation()
+    console.log(Location.state.gameIdentifier);
 
-    console.log(gameDetails);
+    const fetchGameDetails = async (gameId) => {
+      try {
+          const response = await fetch(`https://api.rawg.io/api/games/${gameId}?key=${process.env.REACT_APP_RAWG_KEY}`);
+          const data = await response.json();
+          setGameDetails(data);
+      } catch (error) {
+        console.error('Error fetching game details: ', error);
+      }
+    };
+
+      var gameId = Location.state.gameIdentifier;
+
+    useEffect(() => {
+      fetchGameDetails(gameId);
+    }, []
+    )
   
     return (
-      <div className="game-details">
-        {/* Displaying basic game details */}
-        <img className="gameImage" src={gameDetails.background_image} alt={gameDetails.name} />
-        <h3 className="gameTitle">{gameDetails.name}</h3>
-        {/* {console.log(gameImage)}
-        {console.log(gameTitle)} */}
-        {/* Add more game details as needed */}
+      <div className="gameDetailsLayout">
+          {(gameDetails) ? <div className="game-details">
+            <div className="titleAndDescription">
+                <h3 className="individualGameTitle">{gameDetails.name}</h3><br /><br />
+                <p className="descriptionText">{gameDetails.description_raw}</p><br /><br />
+                <p className="descriptionText">{gameDetails.description}</p><br /><br />
+            </div>
+            <div className="imageAndDetails">
+                <img className="individualGameImage" src={gameDetails.background_image} alt="Game image" />
+
+                <h3>Current Metacritic Score:</h3>
+                <p>{gameDetails.metacritic}</p><br /><br />
+
+                <h3>Official Website:</h3>
+                <p>{gameDetails.website}</p><br /><br />
+
+                <h3>Developed by:</h3>
+                {gameDetails.developers && gameDetails.developers.map((developer, index) => (
+                    <p key={index}>{developer.name}</p>
+                ))}<br /><br />
+
+                <h3>Available on the following platforms:</h3>
+                {gameDetails.platforms && gameDetails.platforms.map((platformData, index) => (
+                  <div key={index}>
+                    <p>{platformData.platform.name}</p>
+                  </div>
+                ))}
+                <br /><br />
+
+                <h3>Genres:</h3>
+                {gameDetails.genres && gameDetails.genres.map((genres, index) => (
+                  <p key={index}>{genres.name}</p>
+                ))}<br /><br />
+
+                {gameDetails.ratings && gameDetails.ratings.map((ratings, index) => (
+                  <p key={index}>{ratings.name}</p>
+                ))}<br /><br />
+            </div>
+          </div> : 
+        <div>
+          Loading...
+        </div>}
       </div>
     );
   };

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+p {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+}
+
+.descriptionText {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 3px;
+    font-size: 14px;
+}
+
+h3 {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    color: #44AF69;
+}
+
+.game-details {
+    display: flex;
+    flex-direction: row;
+}
+
+.titleAndDescription {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 80px;
+}
+
+.imageAndDetails {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 80px;
+}
+
+.individualGameImage {
+    height: 300px;
+    width: 400px;
+}
+
+.individualGameTitle {
+    font-size: 40px;
+    font-family: 'Orbitron', sans-serif;
+}
+
