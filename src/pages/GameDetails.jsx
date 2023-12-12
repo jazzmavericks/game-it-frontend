@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {useLocation} from 'react-router-dom';
 import '../pages/GameDetails.css';
 import { GetGameData } from '../utils/getGameData';
+import DOMPurify from 'dompurify';
 
 const GameDetails = (props) => {
     const [gameDetails, setGameDetails] = useState(null);
@@ -30,8 +31,10 @@ const GameDetails = (props) => {
           {(gameDetails) ? <div className="game-details">
             <div className="titleAndDescription">
                 <h3 className="individualGameTitle">{gameDetails.name}</h3><br /><br />
-                <p className="descriptionText">{gameDetails.description_raw}</p><br /><br />
-                <p className="descriptionText">{gameDetails.description}</p><br /><br />
+                <p className="descriptionText" dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(gameDetails.description),
+            }}
+          ></p><br /><br />
             </div>
             <div className="imageAndDetails">
                 <img className="individualGameImage" src={gameDetails.background_image} alt="Game image" />
