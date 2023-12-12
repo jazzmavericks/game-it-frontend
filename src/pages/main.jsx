@@ -4,6 +4,7 @@ import '../pages/main.css';
 import Slider from '../components/heroSlider';
 import { GetGameData } from '../utils/getGameData';
 import AllGames from '../components/allGames';
+import LatestNews from './components/LatestNews';
 
 // Creating a functional component named Main
 function Main(props) {
@@ -36,6 +37,7 @@ function Main(props) {
   return (
     <div>
       <Slider></Slider>
+      <LatestNews />
     </div>
 
   );

@@ -9,7 +9,6 @@ import Main from './pages/main';
 import GamesLibrary from './pages/gamesLibrary';
 import Navbar from './components/Navbar.jsx';
 import GameDetails from './pages/GameDetails.jsx';
-import LatestNews from './components/LatestNews';
 import News from './pages/news';
 
 
@@ -109,7 +108,6 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
-      <LatestNews />
       <Footer></Footer>
     </div>
   );
