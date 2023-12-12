@@ -63,9 +63,7 @@ const GameDetails = (props) => {
                   <p key={index}>{genres.name}</p>
                 ))}<br /><br />
 
-                {gameDetails.ratings && gameDetails.ratings.map((ratings, index) => (
-                  <p key={index}>{ratings.name}</p>
-                ))}<br /><br />
+
             </div>
           </div> : 
         <div>

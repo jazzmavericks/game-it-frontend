@@ -9,6 +9,8 @@ import Main from './pages/main';
 import GamesLibrary from './pages/gamesLibrary';
 import Navbar from './components/Navbar.jsx';
 import GameDetails from './pages/GameDetails.jsx';
+import LatestNews from './components/LatestNews';
+import News from './pages/news';
 
 
 // Main component named App
@@ -56,6 +58,16 @@ function App() {
               registered={registered} setRegistered={setRegistered}
             />}
           />
+          {/* Route for the 'News' component on '/News' path */}
+          <Route
+            exact
+            path="/news"
+            element={<News
+              email={email} setEmail={setEmail}
+              loggedIn={loggedIn} setLoggedIn={setLoggedIn}
+              registered={registered} setRegistered={setRegistered}
+            />}
+          />
           {/* Route for the 'RegisterForm' component on '/register' path */}
           <Route
             exact
@@ -97,6 +109,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+      <LatestNews />
       <Footer></Footer>
     </div>
   );
