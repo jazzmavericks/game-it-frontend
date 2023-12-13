@@ -83,10 +83,10 @@ function ShowCompleted(props) {
         <div>
             <div className="libraryBody">
                 <div className="headerSection">
-                    <h1>Games Completed: </h1>
+                    <h1 style={{color: "#3E92CC", fontSize: "larger"}}>Games Completed: </h1>
                 </div>
                 <div className="horizontal-fade-line"></div>
-
+                <br></br>
                 <div className="gamesContainer">
                     {resultsArray.length > 0 ? (
                         resultsArray.map((game) => (
@@ -96,7 +96,7 @@ function ShowCompleted(props) {
                             </div>
                         ))
                     ) : (
-                        <p>No games currently completed.</p>
+                        <p className='noGamesP'>No games currently completed.</p>
                     )}
                 </div>
             </div>

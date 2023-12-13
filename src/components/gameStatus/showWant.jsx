@@ -83,10 +83,10 @@ function ShowWant(props) {
         <div>
             <div className="libraryBody">
                 <div className="headerSection">
-                    <h1>Games Wanted: </h1>
+                    <h1 style={{color: "#3E92CC", fontSize: "larger"}}>Games Wanted: </h1>
                 </div>
                 <div className="horizontal-fade-line"></div>
-
+                <br></br>
                 <div className="gamesContainer">
                     {resultsArray.length > 0 ? (
                         resultsArray.map((game) => (
@@ -96,7 +96,7 @@ function ShowWant(props) {
                             </div>
                         ))
                     ) : (
-                        <p>No games currently wanted.</p>
+                        <p className='noGamesP'>No games currently wanted.</p>
                     )}
                 </div>
             </div>

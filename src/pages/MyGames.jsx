@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../components/navbar.css';
-import '../pages/gamesLibrary.css';
+// import '../components/navbar.css';
+import '../pages/myGames.css';
 import ShowPlaying from "../components/gameStatus/showPlaying";
 import ShowCompleted from '../components/gameStatus/showCompleted';
 import ShowOwned from "../components/gameStatus/showOwned";
@@ -19,30 +19,30 @@ function MyGames(props) {
             </div >
                 <div class="horizontal-fade-line"></div>
             <div>
-            <ShowPlaying 
-                email={props.email} 
-                playingGames={playingGames} 
-                setLoggedIn={props.setLoggedIn} 
-                setRegistered={props.setRegistered}
-            />
-            <ShowCompleted 
-                email={props.email} 
-                completedGames={completedGames} 
-                setLoggedIn={props.setLoggedIn} 
-                setRegistered={props.setRegistered}
-            />
-            <ShowOwned
-                email={props.email} 
-                ownedGames={ownedGames} 
-                setLoggedIn={props.setLoggedIn} 
-                setRegistered={props.setRegistered}
-            />
-            <ShowWant
-                email={props.email} 
-                wantedGames={wantedGames} 
-                setLoggedIn={props.setLoggedIn} 
-                setRegistered={props.setRegistered}
-            />
+                <ShowPlaying 
+                    email={props.email} 
+                    playingGames={playingGames} 
+                    setLoggedIn={props.setLoggedIn} 
+                    setRegistered={props.setRegistered}
+                />
+                <ShowCompleted 
+                    email={props.email} 
+                    completedGames={completedGames} 
+                    setLoggedIn={props.setLoggedIn} 
+                    setRegistered={props.setRegistered}
+                />
+                <ShowOwned
+                    email={props.email} 
+                    ownedGames={ownedGames} 
+                    setLoggedIn={props.setLoggedIn} 
+                    setRegistered={props.setRegistered}
+                />
+                <ShowWant
+                    email={props.email} 
+                    wantedGames={wantedGames} 
+                    setLoggedIn={props.setLoggedIn} 
+                    setRegistered={props.setRegistered}
+                />
             </div>
         </div>
     )
