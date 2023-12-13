@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useLocation} from 'react-router-dom';
+import {useLocation, Link} from 'react-router-dom';
 import '../pages/GameDetails.css';
 import { GetGameData } from '../utils/getGameData';
 import DOMPurify from 'dompurify';
@@ -28,6 +28,7 @@ const GameDetails = (props) => {
   
     return (
       <div className="gameDetailsLayout">
+        <Link to="/gameslibrary" className="back-button">Back to All Games</Link>
           {(gameDetails) ? <div className="game-details">
             <div className="titleAndDescription">
                 <h3 className="individualGameTitle">{gameDetails.name}</h3><br /><br />
