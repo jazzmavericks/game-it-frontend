@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
-import DeleteStatus from './deleteStatus';
+import DeleteOwned from './deleteOwned';
 
 // Creating a functional component named RegisterForm
 function ShowOwned(props) {
@@ -94,7 +94,8 @@ function ShowOwned(props) {
                             <div className="gameItem" key={game.id}>
                                 <img className="gameImage" src={game.background_image} alt={game.name} />
                                 <h3 className="gameTitle">{game.name}</h3>
-                                <DeleteStatus 
+                                <br></br>
+                                <DeleteOwned
                                     email={props.email} 
                                     gameID={game.id} 
                                     setLoggedIn={props.setLoggedIn} 
