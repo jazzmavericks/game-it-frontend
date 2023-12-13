@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import DeleteStatus from './deleteStatus';
 
 // Creating a functional component named RegisterForm
 function ShowPlaying(props) {
-    const [playingGames, setPlayingGames] = useState([]);
+    const [playingGames, setplayingGames] = useState([]);
     const [searchResults, setSearchResults] = useState(null);
     const [resultsArray, setResultsArray] = useState([]);
     const navigate = useNavigate();
@@ -35,7 +36,7 @@ function ShowPlaying(props) {
 
             setResultsArray(gameDataArray);
 
-            setPlayingGames(data.details);
+            setplayingGames(data.details);
 
             // Setting loggedIn and registered states
             setLoggedIn(true);
@@ -76,27 +77,32 @@ function ShowPlaying(props) {
 
     useEffect(() => {
         // Log the updated state here
-        console.log('Fetched playing status:', playingGames);
+        console.log('Fetched completed status:', playingGames);
     }, [playingGames]);
 
     return (
         <div>
             <div className="libraryBody">
                 <div className="headerSection">
-                    <h1 style={{color: "#3E92CC", fontSize: "larger"}} >Games Playing: </h1>
+                    <h1 style={{color: "#3E92CC", fontSize: "larger"}}>Games Playing: </h1>
                 </div>
                 <div className="horizontal-fade-line"></div>
-            <br></br>
+                <br></br>
                 <div className="gamesContainer">
                     {resultsArray.length > 0 ? (
                         resultsArray.map((game) => (
                             <div className="gameItem" key={game.id}>
                                 <img className="gameImage" src={game.background_image} alt={game.name} />
                                 <h3 className="gameTitle">{game.name}</h3>
+                                <DeleteStatus 
+                                    email={props.email} 
+                                    gameID={game.id} 
+                                    setLoggedIn={props.setLoggedIn} 
+                                    setRegistered={props.setRegistered} />
                             </div>
                         ))
                     ) : (
-                        <p className='noGamesP'>No games currently playing.</p>
+                        <p className='noGamesP'>No games currently completed.</p>
                     )}
                 </div>
             </div>
