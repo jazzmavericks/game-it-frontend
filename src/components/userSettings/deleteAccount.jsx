@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../pages/main.css';
+import '../../components/navbar.css';
 
 function DeleteAccount(props) {
   const [showModal, setShowModal] = useState(false);
@@ -53,7 +53,7 @@ function DeleteAccount(props) {
   return (
     <div>
       <form onSubmit={(e) => e.preventDefault()}>
-        <button type="button" onClick={handleShowModal}>
+        <button type="button" className="delBt" onClick={handleShowModal}>
           Delete account
         </button>
       </form>
@@ -62,7 +62,7 @@ function DeleteAccount(props) {
         <div className="modal">
           <div className="modal-content">
             <h4>Are you sure you want to delete your account?</h4>
-            <button onClick={handleDeleteConfirmation}>Yes</button>
+            <button style={{backgroundColor: "red"}} onClick={handleDeleteConfirmation}>Yes</button>
             <button onClick={handleCancelDelete}>No</button>
           </div>
         </div>
