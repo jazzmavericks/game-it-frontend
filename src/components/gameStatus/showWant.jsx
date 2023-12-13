@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
-import DeleteStatus from './deleteStatus';
+import DeleteWant from './deleteWant';
 
 // Creating a functional component named RegisterForm
 function ShowWant(props) {
@@ -94,7 +94,8 @@ function ShowWant(props) {
                             <div className="gameItem" key={game.id}>
                                 <img className="gameImage" src={game.background_image} alt={game.name} />
                                 <h3 className="gameTitle">{game.name}</h3>
-                                <DeleteStatus 
+                                <br></br>
+                                <DeleteWant 
                                     email={props.email} 
                                     gameID={game.id} 
                                     setLoggedIn={props.setLoggedIn} 
