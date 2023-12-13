@@ -93,9 +93,9 @@ const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
 };
 
-const fetchGameData = async (searchTerm, setSearchResults, setSelectedOption) => {
+const fetchGameData = async (searchTerm) => {
     try {
-        const data = await GetGameData(searchTerm, setSearchResults, setSelectedOption);
+        const data = await GetGameData(searchTerm, setSearchResults, selectedOption); // Pass selectedOption here
         setGameData(data);
         setModalIsOpen(true); // Open the modal after fetching data
         setPreviousPage(data.previous);
@@ -104,6 +104,7 @@ const fetchGameData = async (searchTerm, setSearchResults, setSelectedOption) =>
         console.log(error);
     }
 };
+
 
 const handleSearch = (searchTerm, searchResults) => {
     fetchGameData(searchTerm, setSearchResults, setSelectedOption);
@@ -138,8 +139,8 @@ return (
                     <label>
                         <input
                         type="radio"
-                        value="alphabeticalA2Z"
-                        checked={selectedOption === 'alphabeticalA2Z'}
+                        value="name"
+                        checked={selectedOption === 'name'}
                         onChange={handleOptionChange}
                         />
                         A to Z
@@ -148,8 +149,8 @@ return (
                     <label>
                         <input
                         type="radio"
-                        value="alphabeticalZ2A"
-                        checked={selectedOption === 'alphabeticalZ2A'}
+                        value="-name"
+                        checked={selectedOption === '-name'}
                         onChange={handleOptionChange}
                         />
                         Z to A
@@ -158,8 +159,8 @@ return (
                     <label>
                         <input
                         type="radio"
-                        value="releaseDate"
-                        checked={selectedOption === 'releaseDate'}
+                        value="released"
+                        checked={selectedOption === 'released'}
                         onChange={handleOptionChange}
                         />
                         Recently Released
@@ -168,8 +169,8 @@ return (
                     <label>
                         <input
                         type="radio"
-                        value="rating"
-                        checked={selectedOption === 'rating'}
+                        value="rating_top"
+                        checked={selectedOption === 'rating_top'}
                         onChange={handleOptionChange}
                         />
                         Best Rated
@@ -278,7 +279,13 @@ return (
                         ))}
                     </div>
                 </Modal>
-                <AllGames gameID={props.gameID} setGameID={props.setGameID} email={props.email}></AllGames>
+                <AllGames
+                    gameID={props.gameID}
+                    setGameID={props.setGameID}
+                    email={props.email}
+                    selectedSortOption={selectedOption}
+                    fetchGameData={fetchGameData}
+                ></AllGames>
             </div>
         </div>
     </div>

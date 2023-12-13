@@ -7,28 +7,40 @@ import Want from './gameStatus/want';
 import Completed from './gameStatus/completed';
 
 const AllGames = (props) => {
-    const [games, setGames] = useState([]);
-    const [previousPage, setPreviousPage] = useState('');
-    const [nextPage, setNextPage] = useState('');
+  const { selectedSortOption, fetchGameData } = props;
+  const [games, setGames] = useState([]);
+  const [previousPage, setPreviousPage] = useState('');
+  const [nextPage, setNextPage] = useState('');
   
     useEffect(() => {
-      const fetchGames = async () => {
-        try {
-          const res = await fetch(`https://rawg.io/api/games?token&key=${process.env.REACT_APP_RAWG_KEY}`);
-          const data = await res.json();
-          console.log(data);
-          setGames(data.results);
-          setPreviousPage(data.previous);
-          setNextPage(data.next);
-          // console.log(data.results[0].id);
-          // setGameID(parseInt(data.results[0].id));
-        } catch (error) {
-          console.log(error);
-        }
-      };
+      fetchGames(selectedSortOption);
+  }, [selectedSortOption]);
   
-      fetchGames();
-    }, []);
+  const fetchGames = async (sortOption = '') => {
+    try {
+        if (sortOption === "alphabeticalA2Z") {
+          sortOption = "&ordering=name";
+      } else if (sortOption === "alphabeticalZ2A") {
+        sortOption = "&ordering=-name";
+      } else if (sortOption === "rating") {
+        sortOption = "&ordering=rating_top";
+      } else if (sortOption === "metacritic") {
+        sortOption = "&ordering=metacritic";
+      } else if (sortOption === "releaseDate") {
+        sortOption = "&ordering=released";
+      } 
+        const url = `https://rawg.io/api/games?token&key=${process.env.REACT_APP_RAWG_KEY}&ordering=${sortOption}`
+        console.log(url)
+        const res = await fetch(url);
+        const data = await res.json();
+        setGames(data.results);
+        setPreviousPage(data.previous);
+        setNextPage(data.next);
+        console.log(sortOption)
+    } catch (error) {
+        console.log(error);
+    }
+};
   
     const handlePreviousPage = async () => {
       if (previousPage) {
