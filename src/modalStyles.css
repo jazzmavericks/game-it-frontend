@@ -1,0 +1,15 @@
+.custom-modal-overlay {
+    /* Overlay styles */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.custom-modal-content {
+    /* Modal content styles */
+    color: black;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+}

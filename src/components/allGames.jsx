@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import '../components/allGames.css';
+import Playing from './gameStatus/playing';
+import Owned from './gameStatus/owned';
+import Want from './gameStatus/want';
+import Completed from './gameStatus/completed';
 
-const AllGames = () => {
+const AllGames = (props) => {
     const [games, setGames] = useState([]);
     const [previousPage, setPreviousPage] = useState('');
     const [nextPage, setNextPage] = useState('');
+    const [gameID, setGameID] = useState('');
   
     useEffect(() => {
       const fetchGames = async () => {
@@ -15,6 +20,8 @@ const AllGames = () => {
           setGames(data.results);
           setPreviousPage(data.previous);
           setNextPage(data.next);
+          // console.log(data.results[0].id);
+          // setGameID(parseInt(data.results[0].id));
         } catch (error) {
           console.log(error);
         }
@@ -74,14 +81,14 @@ const AllGames = () => {
               <button className="findOutMore">FIND OUT MORE</button>
               <div className="controls">
                 <div className="control">
-                  <div>OWN</div>
-                  <div>WANT</div>
+                  <div><Owned email={props.email} gameID={game.id}/></div>
+                  <div><Want email={props.email} gameID={game.id}/></div>
                 </div>
               </div>
               <div className="controls">
                 <div className="control">
-                  <div>PLAYING</div>
-                  <div>COMPLETED</div>
+                  <div><Playing email={props.email} gameID={game.id}/></div>
+                  <div><Completed email={props.email} gameID={game.id}/></div>
                 </div>
               </div>
             </div>

@@ -47,7 +47,7 @@ function Listusers(props) {
 
     // Rendering the Listusers component
     return (
-        <div class="listAllUsersPart">
+        <div className="listAllUsersPart">
             <hr />
             <h2>List all users</h2>
             {/* Button to trigger fetching the list of users */}
