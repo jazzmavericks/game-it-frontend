@@ -38,6 +38,10 @@ function Main(props) {
   return (
     <div>
       <Slider></Slider>
+      <div className="newsHeaderSection">
+          <h1>Latest News</h1>
+        </div>
+        <div class="horizontal-fade-line"></div>
       <LatestNews />
     </div>
 

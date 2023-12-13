@@ -254,3 +254,15 @@ h1, h2, h3 {
   align-items: center;
   justify-content: center;
 }
+
+.newsHeaderSection {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Orbitron', sans-serif;
+  padding-left: 45px;
+}
+
+.newsHeaderSection h1 {
+  color:#44AF69;
+  font-family: 'Orbitron', sans-serif;
+}
