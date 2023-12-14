@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --color-blue: #3E92CC;
+  --color-green: #44AF69;
+  --color-white: #E9EDED;
+  --color-grey: #404E4D;
+  --color-black: #1C1C23;
+}
+
+.headerSection {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Orbitron', sans-serif;
+    /* background: linear-gradient(to right, #1C1C23, #2f2f3f); */
+    padding-left: 45px;
+}
+
+.headerSection h1 {
+    color:#44AF69;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.horizontal-fade-line {
+    width: 80%; /* Adjust the width as needed */
+    margin: 0px auto; /* Adjust margin as needed */
+    height: 1px; /* Set the height of the line */
+    background: linear-gradient(to right, transparent, #3e92cc, transparent); /* Adjust colors as needed */
+}
+
+.noGamesP {
+    color: var(--color-white);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.gamesContainer {
+    padding: 10px 50px 20px;
+}

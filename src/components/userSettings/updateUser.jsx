@@ -23,6 +23,7 @@ function UpdateUser(props){
         if (response.ok && data.message === 'username updated') {
             readCookie("jwt_token");
             setLoggedIn(true);
+            window.location.href = window.location.origin;
         } else {
             // Handle other scenarios or provide error feedback to the user.
             console.error('Failed to update username:', data.message);
@@ -44,7 +45,8 @@ function UpdateUser(props){
         console.log(props.email)
 
     return (
-        <div>
+        <div className="change">
+        <h3>Change Username</h3>
             <form onSubmit={handleSubmit}>
                 <input 
                     className="emailbox" 
@@ -57,6 +59,7 @@ function UpdateUser(props){
                 <br />
                 <input
                     type="submit" 
+                    className="changeBt"
                     value="Change username">
                 </input>
             </form>

@@ -69,6 +69,7 @@ span {
 .logoutBtn {
   font-family: 'Orbitron', sans-serif;
   height: 50px;
+  font-size: 1em;
   color: var(--color-blue);
   background-color: transparent;
   text-decoration: none;
@@ -83,7 +84,7 @@ span {
 /* SETTINGS */
 .settings-icon {
   font-family: 'Orbitron', sans-serif;
-  font-size: 2em;
+  font-size: 3em;
   margin-right: 10px;
 }
 
@@ -103,13 +104,61 @@ span {
 /* MODAL USER SETTINGS */
 .modal {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
+  background-color: var(--color-white);
+  height: 100%;
+}
+
+.modal-content {
+  display: flex; 
   align-items: center;
   justify-content: center;
 }
 
-.model-content {
-  align-items: center;
-  justify-content: center;
+h4 {
+  color: var(--color-black);
+  font-size: 2em;
 }
 
+.modal-content button {
+  font-family: 'Orbitron', sans-serif;
+  height: 50px;
+  width: 50px;
+  font-size: 1em;
+  margin: 20px;
+}
+
+.delBt {
+  font-family: 'Orbitron', sans-serif;
+  height: 50px;
+  font-size: 1em;
+}
+
+.delBt:hover {
+  background-color: red;
+}
+
+.change h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--color-blue);
+}
+
+.change input {
+  width: 200px;
+  height: 30px;
+  margin: 2px;
+  border: none;
+  border-radius: 3px;
+}
+
+.changeBt {
+  font-family: 'Orbitron', sans-serif;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+.changeBt:hover {
+  background-color: var(--color-green);
+}

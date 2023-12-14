@@ -4,11 +4,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RegisterForm from './components/registerForm';
 import LoginForm from './components/LoginForm';
 import Footer from './components/footer';
-// import Navbar from './components/navbar';
 import About from './pages/about';
 import Main from './pages/main';
 import GamesLibrary from './pages/gamesLibrary';
+import MyGames from './pages/MyGames.jsx';
 import Navbar from './components/Navbar.jsx';
+import GameDetails from './pages/GameDetails.jsx';
+import News from './pages/news';
 
 
 // Main component named App
@@ -17,6 +19,7 @@ function App() {
   const [email, setEmail] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [registered, setRegistered] = useState(false);
+  const [gameID, setGameID] = useState();
 
   // Rendered JSX for the application
   return (
@@ -35,11 +38,11 @@ function App() {
               registered={registered} setRegistered={setRegistered}
             />}
           />
-          {/* Route for the 'LoginForm' component on the root path */}
+          {/* Route for the 'Main' component on the root path */}
           <Route
             exact
             path="/"
-            element={<LoginForm
+            element={<Main
               email={email} setEmail={setEmail}
               loggedIn={loggedIn} setLoggedIn={setLoggedIn}
               registered={registered} setRegistered={setRegistered}
@@ -50,6 +53,16 @@ function App() {
             exact
             path="/login"
             element={<LoginForm
+              email={email} setEmail={setEmail}
+              loggedIn={loggedIn} setLoggedIn={setLoggedIn}
+              registered={registered} setRegistered={setRegistered}
+            />}
+          />
+          {/* Route for the 'News' component on '/News' path */}
+          <Route
+            exact
+            path="/news"
+            element={<News
               email={email} setEmail={setEmail}
               loggedIn={loggedIn} setLoggedIn={setLoggedIn}
               registered={registered} setRegistered={setRegistered}
@@ -83,8 +96,27 @@ function App() {
               email={email} setEmail={setEmail}
               loggedIn={loggedIn} setLoggedIn={setLoggedIn}
               registered={registered} setRegistered={setRegistered}
+              gameID = {gameID} setGameID = {setGameID}
             />}
           />
+            {/* Route for the 'GameDetails' component on '/GameDetails' path */}
+            <Route
+            exact
+            path="/GameDetails"
+            element={<GameDetails
+
+            />}
+            />
+              {/* Route for the 'MyGames' component on '/MyGames' path */}
+              <Route
+                exact
+                path="/MyGames"
+                element={<MyGames
+                email={email} setEmail={setEmail}
+                loggedIn={loggedIn} setLoggedIn={setLoggedIn}
+                registered={registered} setRegistered={setRegistered}
+              />}
+              />
         </Routes>
       </BrowserRouter>
       <Footer></Footer>

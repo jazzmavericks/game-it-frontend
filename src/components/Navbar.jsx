@@ -17,9 +17,9 @@ function Navbar({loggedIn, email, setEmail}) {
           <li><Link className="link" to="/main">Home</Link></li>
           <li><Link className="link" to="/gamesLibrary">Games Library</Link></li>
           {loggedIn &&
-          <><li>My Games</li><li>Profile</li></>
+          <><li><Link className="link" to="/MyGames">My Games</Link></li></>
           }
-          <li>News</li>
+          <li><Link className="link" to="/news">News</Link></li>
           <li><Link className="link" to="/about">About</Link></li>
         </ul>
       </div>

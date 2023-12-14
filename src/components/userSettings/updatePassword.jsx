@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { readCookie } from "../../utils/utilities";
 import '../../components/registerForm';
+import '../navbar.css';
 
 function UpdatePassword(props) {
   const [newPassword, setNewPassword] = useState('');
@@ -30,6 +31,7 @@ function UpdatePassword(props) {
       console.log(data);
 
       setLoggedIn(true);
+      window.location.href = window.location.origin;
     } catch (error) {
       console.error("Error updating password:", error.message);
     }
@@ -58,7 +60,8 @@ function UpdatePassword(props) {
   console.log(props.password);
 
   return (
-    <div>
+    <div className="change">
+      <h3>Change Password</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="password"
@@ -79,6 +82,7 @@ function UpdatePassword(props) {
         <br />
         <input
           type="submit"
+          className="changeBt"
           value="Change Password"
         />
       </form>

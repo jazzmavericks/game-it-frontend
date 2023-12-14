@@ -1,27 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import '../components/allGames.css';
+import { Link } from 'react-router-dom';
+import Playing from './gameStatus/playing';
+import Owned from './gameStatus/owned';
+import Want from './gameStatus/want';
+import Completed from './gameStatus/completed';
 
-const AllGames = () => {
-    const [games, setGames] = useState([]);
-    const [previousPage, setPreviousPage] = useState('');
-    const [nextPage, setNextPage] = useState('');
+const AllGames = (props) => {
+  const { selectedSortOption, fetchGameData } = props;
+  const [games, setGames] = useState([]);
+  const [previousPage, setPreviousPage] = useState('');
+  const [nextPage, setNextPage] = useState('');
   
     useEffect(() => {
-      const fetchGames = async () => {
-        try {
-          const res = await fetch(`https://rawg.io/api/games?token&key=${process.env.REACT_APP_RAWG_KEY}`);
-          const data = await res.json();
-          console.log(data);
-          setGames(data.results);
-          setPreviousPage(data.previous);
-          setNextPage(data.next);
-        } catch (error) {
-          console.log(error);
-        }
-      };
+      fetchGames(selectedSortOption);
+  }, [selectedSortOption]);
   
-      fetchGames();
-    }, []);
+  const fetchGames = async (sortOption = '') => {
+    try {
+        if (sortOption === "alphabeticalA2Z") {
+          sortOption = "&ordering=name";
+      } else if (sortOption === "alphabeticalZ2A") {
+        sortOption = "&ordering=-name";
+      } else if (sortOption === "rating") {
+        sortOption = "&ordering=rating_top";
+      } else if (sortOption === "metacritic") {
+        sortOption = "&ordering=metacritic";
+      } else if (sortOption === "releaseDate") {
+        sortOption = "&ordering=released";
+      } 
+        const url = `https://rawg.io/api/games?token&key=${process.env.REACT_APP_RAWG_KEY}&ordering=${sortOption}`
+        console.log(url)
+        const res = await fetch(url);
+        const data = await res.json();
+        setGames(data.results);
+        setPreviousPage(data.previous);
+        setNextPage(data.next);
+        console.log(sortOption)
+    } catch (error) {
+        console.log(error);
+    }
+};
   
     const handlePreviousPage = async () => {
       if (previousPage) {
@@ -71,17 +90,20 @@ const AllGames = () => {
             <div className="gameItem" key={game.id}>
               <img className="gameImage" src={game.background_image} alt={game.name} />
               <h3 className="gameTitle">{game.name}</h3>
-              <button className="findOutMore">FIND OUT MORE</button>
+              {/* Find Out More button linked to GameDetails */}
+              <Link to="/GameDetails" state={{gameIdentifier:game.id}}>
+                <button className="findOutMore">FIND OUT MORE</button>
+              </Link>
               <div className="controls">
                 <div className="control">
-                  <div>OWN</div>
-                  <div>WANT</div>
+                  <div><Owned email={props.email} gameID={game.id}/></div>
+                  <div><Want email={props.email} gameID={game.id}/></div>
                 </div>
               </div>
               <div className="controls">
                 <div className="control">
-                  <div>PLAYING</div>
-                  <div>COMPLETED</div>
+                  <div><Playing email={props.email} gameID={game.id}/></div>
+                  <div><Completed email={props.email} gameID={game.id}/></div>
                 </div>
               </div>
             </div>
