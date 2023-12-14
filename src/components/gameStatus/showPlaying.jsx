@@ -70,6 +70,12 @@ function ShowPlaying(props) {
         }
     }
 
+// Function to update the local state when a game is deleted
+    const handleStatusChange = () => {
+    // Fetch the updated playing games and set the state
+    sendShowStatusFromBackend(props.email, props.setLoggedIn, props.setRegistered);
+    };
+
     useEffect(() => {
         fetchGames();
         sendShowStatusFromBackend(props.email, props.setLoggedIn, props.setRegistered);
@@ -99,7 +105,9 @@ function ShowPlaying(props) {
                                     email={props.email} 
                                     gameID={game.id} 
                                     setLoggedIn={props.setLoggedIn} 
-                                    setRegistered={props.setRegistered} />
+                                    setRegistered={props.setRegistered}
+                                    onStatusChange={handleStatusChange} // Pass the function to update the state
+                                />
                             </div>
                         ))
                     ) : (
