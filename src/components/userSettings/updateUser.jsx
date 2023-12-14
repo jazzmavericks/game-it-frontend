@@ -23,6 +23,7 @@ function UpdateUser(props){
         if (response.ok && data.message === 'username updated') {
             readCookie("jwt_token");
             setLoggedIn(true);
+            window.location.href = window.location.origin;
         } else {
             // Handle other scenarios or provide error feedback to the user.
             console.error('Failed to update username:', data.message);

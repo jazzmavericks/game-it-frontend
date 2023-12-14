@@ -31,6 +31,7 @@ function UpdatePassword(props) {
       console.log(data);
 
       setLoggedIn(true);
+      window.location.href = window.location.origin;
     } catch (error) {
       console.error("Error updating password:", error.message);
     }
