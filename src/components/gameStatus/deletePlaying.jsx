@@ -1,4 +1,3 @@
-import { readCookie } from "../../utils/utilities";
 import React, { useState } from 'react';
 
 function DeletePlaying(props) {
@@ -21,7 +20,7 @@ function DeletePlaying(props) {
             console.log(updateStatusData);
 
             if (updateStatusResponse.ok && updateStatusData.message === 'Status updated successfully') {
-                readCookie("jwt_token");
+                props.onStatusChange(); 
                 setLoggedIn(true);
             } 
 
@@ -35,7 +34,7 @@ function DeletePlaying(props) {
     }
 
     function handleRemoveButtonClick() {
-        const { email, userId, gameID, setLoggedIn } = props;
+        const { email, gameID, setLoggedIn } = props;
         sendStatusToBackend(email, gameID, newStatus, setLoggedIn);
     }
 
