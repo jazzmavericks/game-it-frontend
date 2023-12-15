@@ -5,6 +5,10 @@ import LinkedInIcon from '../images/linkedinicon.png';
 import WebsiteIcon from '../images/website.png';
 import EmailIcon from '../images/emailicon.png';
 import GitHubIcon from '../images/githubicon.png';
+import Mark from '../images/Mark.jpg';
+import James from '../images/James.jpg';
+import Luca from '../images/Luca.jpg';
+import Aleasa from '../images/aleasa.jpg';
 import TeamLogo from '../images/team-logo.png';
 import './about.css';
 
@@ -26,13 +30,13 @@ function About() {
         <div className="profileSection">
             <div className="profileCard">
                 <div className="profileImage">
-                    <img className="profilePic" src={ProfilePic} alt="Profile Picture" />
+                    <img className="profilePic" src={James} alt="Profile Picture" />
                 </div>
                 <div className="profileName">
                     James Powley
                 </div>
                 <div className="profileText">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tristique, ligula ut lacinia condimentum, velit augue hendrerit lorem, at varius orci purus quis est. Quisque sollicitudin rutrum nisl, sit amet molestie nibh aliquam at. Proin eu dolor sodales, fermentum nibh et, interdum justo. Vivamus vehicula vulputate nisi, vitae vestibulum dui ullamcorper sit amet.
+                    Coming from a background in the world of E-Games, I have a huge interest in the gaming world. I got into Codenation to develop my coding skills, and have worked through the course to better my future in E-Sports. My skills lay in coding and development.
                 </div>
                 <div className="profileLinks">
                     <div className="profileEmail">
@@ -55,13 +59,13 @@ function About() {
             </div>
             <div className="profileCard">
                 <div className="profileImage">
-                    <img className="profilePic" src={ProfilePic} alt="Profile Picture" />
+                    <img className="profilePic" src={Luca} alt="Profile Picture" />
                 </div>
                 <div className="profileName">
                     Luca Camillo
                 </div>
                 <div className="profileText">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tristique, ligula ut lacinia condimentum, velit augue hendrerit lorem, at varius orci purus quis est. Quisque sollicitudin rutrum nisl, sit amet molestie nibh aliquam at. Proin eu dolor sodales, fermentum nibh et, interdum justo. Vivamus vehicula vulputate nisi, vitae vestibulum dui ullamcorper sit amet.
+                    I came into Codenation having never coded a line in my life, and I'm now sitting here with an amazing project. The skills I have built up will propel me through my future career. I've LOVED this journey.
                 </div>
                 <div className="profileLinks">
                     <div className="profileEmail">
@@ -84,13 +88,13 @@ function About() {
             </div>
             <div className="profileCard">
                 <div className="profileImage">
-                    <img className="profilePic" src={ProfilePic} alt="Profile Picture" />
+                    <img className="profilePic" src={Aleasa} alt="Profile Picture" />
                 </div>
                 <div className="profileName">
                     Aleasa Awan
                 </div>
                 <div className="profileText">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tristique, ligula ut lacinia condimentum, velit augue hendrerit lorem, at varius orci purus quis est. Quisque sollicitudin rutrum nisl, sit amet molestie nibh aliquam at. Proin eu dolor sodales, fermentum nibh et, interdum justo. Vivamus vehicula vulputate nisi, vitae vestibulum dui ullamcorper sit amet.
+                    New to coding, but always willing to try something new, I leapt into Codenation blindly. The skills that I have learned and the existing ones I have which have been propelled - I feel ready to tke on anything.
                 </div>
                 <div className="profileLinks">
                     <div className="profileEmail">
@@ -113,13 +117,13 @@ function About() {
             </div>
             <div className="profileCard">
                 <div className="profileImage">
-                    <img className="profilePic" src={ProfilePic} alt="Profile Picture" />
+                    <img className="profilePic" src={Mark} alt="Profile Picture" />
                 </div>
                 <div className="profileName">
                     Mark Duffy
                 </div>
                 <div className="profileText">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tristique, ligula ut lacinia condimentum, velit augue hendrerit lorem, at varius orci purus quis est. Quisque sollicitudin rutrum nisl, sit amet molestie nibh aliquam at. Proin eu dolor sodales, fermentum nibh et, interdum justo. Vivamus vehicula vulputate nisi, vitae vestibulum dui ullamcorper sit amet.
+                    I entered this course with a background of web design, but had zero experience of javascript, react or any backend. I totally feel comfortable with all now. Ready for more!
                 </div>
                 <div className="profileLinks">
                     <div className="profileEmail">
